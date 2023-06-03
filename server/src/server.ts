@@ -1,17 +1,15 @@
+import dotenv from 'dotenv';
 import mongoose from "mongoose";
 import { app } from "./app";
-import dotenv from 'dotenv'
 
-dotenv.config()
+
+
 
 async function main() {
   try {
-    if(!process.env.MONGO_URI) {
-      throw new Error('missing mongoose link')
-    }
-    await mongoose.connect(
-      process.env.MONGO_URI
-    );
+    const MONGODB_URI = "mongodb+srv://mimsi1:hejhejhej@mimmiscluster1.kxfjo5d.mongodb.net/MyComicBook";
+    
+    await mongoose.connect(MONGODB_URI);
     console.log("Connected to Database");
 
     app.listen(3000, () => {
@@ -21,5 +19,8 @@ async function main() {
     console.error("Error starting server:", error);
   }
 }
+
+main().catch(console.error);
+
 
 main().catch(console.error);
