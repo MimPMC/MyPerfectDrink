@@ -12,15 +12,12 @@ async function main() {
     await mongoose.connect(MONGODB_URI);
     console.log("Connected to Database");
 
-    app.listen(3000, () => {
-      console.log("Server is running: http://localhost:3000");
+    app.listen(4000, () => {
+      console.log("Server is running: http://localhost:4000");
     });
   } catch (error) {
     console.error("Error starting server:", error);
   }
 }
-
-main().catch(console.error);
-
 
 main().catch(console.error);
