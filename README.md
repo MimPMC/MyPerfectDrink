@@ -1,6 +1,6 @@
 
 # MyPowerGirl
-Inspired by an old game, Creating a web - online game where you can customize your character and chat with other players. 
+This is tthe start of a drink- choice app where the user get to find the perfect drink for their wants and can also order it. 
 
 
  ## How to start: 
