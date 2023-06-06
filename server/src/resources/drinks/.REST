@@ -3,6 +3,6 @@ POST http://localhost:4000/api/drinks
 Content-Type: application/json
 
 {  
-    "title": "coffee",
-    "description":"Hot drink with kaffeine"
+    "title": "Tea",
+    "description":"Hot drink with different flavours"
 }
