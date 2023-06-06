@@ -2,6 +2,7 @@ import cookieSession from "cookie-session";
 import express, { NextFunction, Request, Response } from "express";
 import { drinkRouter } from "./resources/drinks/drinkRouter";
 import { userRouter } from "./resources/users/userRouter";
+const cors = require('cors');
 
 export const app = express();
 
@@ -16,6 +17,7 @@ app.use(
 );
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/api/users", userRouter);
 app.use("/api/drinks", drinkRouter);

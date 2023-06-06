@@ -3,6 +3,9 @@ POST http://localhost:4000/api/drinks
 Content-Type: application/json
 
 {  
-    "title": "Tea",
-    "description":"Hot drink with different flavours"
+    "title": "Milk tea",
+    "description":"Tea with milk!! "
 }
+
+###
+GET  http://localhost:4000/api/drinks
