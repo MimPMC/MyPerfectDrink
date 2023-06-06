@@ -1,5 +1,5 @@
 
-# MyPowerGirl
+# MyPerfectDrink
 This is tthe start of a drink- choice app where the user get to find the perfect drink for their wants and can also order it. 
 
 
