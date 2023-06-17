@@ -1,13 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 
 interface Drink {
   _id: string;
+  image: string;
   title: string;
   description: string;
   __v: number;
 }
+
+const Separator = () => <View style={styles.separator} />;
 
 export default function App() {
   const [drinks, setDrinks] = useState<Drink[]>([]);
@@ -15,7 +18,7 @@ export default function App() {
   useEffect(() => {
     const fetchDrinks = async () => {
       try {
-        const response = await axios.get('http://192.168.1.66:4000/api/drinks');
+        const response = await axios.get('http://192.168.26.249:4000/api/drinks');
         setDrinks(response.data);
       } catch (error) {
         console.error(error);
@@ -23,11 +26,13 @@ export default function App() {
     };
 
     fetchDrinks();
+    
   }, [drinks]);
 
   if (!drinks) {
     return (
       <View style={styles.container}>
+       
         <Text>Current drinks available:</Text>
         <Text>No drinks found!</Text>
       </View>
@@ -35,15 +40,22 @@ export default function App() {
   }
 
   const renderDrinkItem = ({ item }: { item: Drink }) => (
-    <Text style={styles.drinkItem }>{item.title+ ": "}
-    <Text style={styles.hello}>{item.description}</Text></Text>
-    
+    <View style={styles.drinkItem}>
+      <Image source={{ uri: item.image }} style={styles.drinkImage} />
+      <View>
+      <Text style={styles.drinkTitle}>{item.title}</Text>
+      <Text>{item.description}</Text>
+
+      </View>
+      
+    </View>
   );
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Current drinks available:</Text>
       <FlatList
+        style={styles.list}
         data={drinks}
         renderItem={renderDrinkItem}
         keyExtractor={(item) => item._id}
@@ -57,11 +69,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#31ff43',
+    backgroundColor: '#78aa64',
   },
   drinkItem: {
+    padding: 15,
     fontSize: 16,
     marginBottom: 10,
+    borderRadius: 5,
+    display: "flex",
+    flexDirection: "row",
+    textAlign: "center",
+    backgroundColor: "white"
+    
    
   },
   title: {
@@ -72,5 +91,22 @@ const styles = StyleSheet.create({
   hello: {
     marginLeft: 5,
     paddingLeft: 5,
+  },
+  separator: {
+    marginVertical: 8,
+    borderBottomColor: '#737373',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  drinkImage: {
+    width: 100,
+    height:100
+  },
+  drinkTitle: {
+    fontSize: 20,
+    textAlign: "center",
+  },
+  list: {
+    width: "100%",
   }
+  
 });

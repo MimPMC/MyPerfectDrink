@@ -2,9 +2,9 @@
 POST http://localhost:4000/api/drinks
 Content-Type: application/json
 
-{  
-    "title": "Milk tea",
-    "description":"Tea with milk!! "
+{  "image" : "https://espressohouse.com/_ipx/w_640,q_75/https%3A%2F%2Fpim-espressohouse.azureedge.net%2FProducts%2FBASIC%2520ASSORTMENT%2FCOLD%2520DRINKS%2FNew%2520cold%2520drinks%2FPREORDER_COLD_DRINK_ICED_TEA_BOOSTER_PEACH_GUARANA.png?url=https%3A%2F%2Fpim-espressohouse.azureedge.net%2FProducts%2FBASIC%2520ASSORTMENT%2FCOLD%2520DRINKS%2FNew%2520cold%2520drinks%2FPREORDER_COLD_DRINK_ICED_TEA_BOOSTER_PEACH_GUARANA.png&w=640&q=75",
+    "title": "Guava Tea",
+    "description":"Tea with loveley berry flavours, very fresh! "
 }
 
 ###
